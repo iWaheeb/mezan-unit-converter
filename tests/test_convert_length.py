@@ -5,7 +5,8 @@ from src.length_converter import (
     convert_to_kilometer,
     convert_to_inch,
     convert_to_foot,
-    convert_to_yard
+    convert_to_yard,
+    convert_to_mile
 )
 
 
@@ -71,4 +72,13 @@ def test_convert_to_yard():
     assert convert_to_yard("km", 1.5) == 1640.41995
     assert convert_to_yard("in", 30) == 0.83333
     assert convert_to_yard("ft", 7) == 2.33333
-    assert convert_to_yard("mi", 0.) == 1408
+    assert convert_to_yard("mi", 1.5) == 2640
+
+def test_convert_to_mile():
+    assert convert_to_mile("mm", 950) == 0.00059
+    assert convert_to_mile("cm", 600) == 0.00373
+    assert convert_to_mile("m", 5) == 0.00311
+    assert convert_to_mile("km", 90) == 55.92341
+    assert convert_to_mile("in", 120) == 0.00189
+    assert convert_to_mile("ft", 400) == 0.07576
+    assert convert_to_mile("yd", 500) == 0.28409
