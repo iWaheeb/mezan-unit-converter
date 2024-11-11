@@ -3,7 +3,8 @@ from src.length_converter import (
     convert_to_centimeter,
     convert_to_meter,
     convert_to_kilometer,
-    convert_to_inch
+    convert_to_inch,
+    convert_to_foot
 )
 
 
@@ -52,3 +53,12 @@ def test_convert_to_inch():
     assert convert_to_inch("ft", 40) == 12
     assert convert_to_inch("yd", 5) == 180
     assert convert_to_inch("mi", 0.75) == 47520
+
+def test_convert_to_foot():
+    assert convert_to_foot("mm", 750) == 2.46063
+    assert convert_to_foot("cm", 150) == 4.92126
+    assert convert_to_foot("m", 4) == 13.12336
+    assert convert_to_foot("km", 1.45) == 4757.218
+    assert convert_to_foot("in", 40) == 0.08333
+    assert convert_to_foot("yd", 5) == 15
+    assert convert_to_foot("mi", 0.75) == 3960
