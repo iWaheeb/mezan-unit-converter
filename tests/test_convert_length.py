@@ -1,7 +1,8 @@
 from src.length_converter import (
     convert_to_millimeter,
     convert_to_centimeter,
-    convert_to_meter
+    convert_to_meter,
+    convert_to_kilometer
 )
 
 
@@ -32,3 +33,12 @@ def test_convert_to_meter():
     assert convert_to_meter("ft", 15) == 4.572
     assert convert_to_meter("yd", 40) == 36.576
     assert convert_to_meter("mi", 70) == 112,654.08
+
+def test_convert_to_kilometer():
+    assert convert_to_kilometer("mm", 700) == 0.0007
+    assert convert_to_kilometer("cm", 5600) == 0.056
+    assert convert_to_kilometer("m", 1400) == 1.4
+    assert convert_to_kilometer("in", 100) == 0.00254
+    assert convert_to_kilometer("ft", 40000) == 12.19200
+    assert convert_to_kilometer("yd", 40) == 0.03658
+    assert convert_to_kilometer("mi", 60) == 96.56064
