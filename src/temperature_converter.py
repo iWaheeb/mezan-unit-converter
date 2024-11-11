@@ -1,8 +1,8 @@
-def convert_to_celsius(value: float, unit: str):
+def convert_to_celsius(from_unit: str, value: float):
     return value
 
-def convert_to_fahrenheit(value: float, unit: str):
+def convert_to_fahrenheit(from_unit: str, value: float):
     return value
 
-def convert_to_kelvin(value: float, unit: str):
+def convert_to_kelvin(from_unit: str, value: float):
     return value
