@@ -22,3 +22,13 @@ def test_convert_to_centimeter():
     assert convert_to_centimeter("ft", 9) == 274.32
     assert convert_to_centimeter("yd", 1.2) == 109.728
     assert convert_to_centimeter("mi", 1.8) == 289681.92
+
+
+def test_convert_to_meter():
+    assert convert_to_meter("mm", 180) == 0.18
+    assert convert_to_meter("cm", 70) == 0.7
+    assert convert_to_meter("km", 180) == 180000
+    assert convert_to_meter("in", 15.6) == 0.39624
+    assert convert_to_meter("ft", 15) == 4.572
+    assert convert_to_meter("yd", 40) == 36.576
+    assert convert_to_meter("mi", 70) == 112,654.08
