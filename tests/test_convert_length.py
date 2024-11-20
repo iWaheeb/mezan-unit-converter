@@ -1,84 +1,81 @@
-from src.length_converter import (
-    convert_to_millimeter,
-    convert_to_centimeter,
-    convert_to_meter,
-    convert_to_kilometer,
-    convert_to_inch,
-    convert_to_foot,
-    convert_to_yard,
-    convert_to_mile
-)
+from src import length_converter
 
 
-def test_convert_to_millimeter():
-    assert convert_to_millimeter("cm", 15) == 150
-    assert convert_to_millimeter("m", 3) == 3000
-    assert convert_to_millimeter("km", 4.5) == 4500000
-    assert convert_to_millimeter("in", 24) == 609.6
-    assert convert_to_millimeter("ft", 7) == 2133.6
-    assert convert_to_millimeter("yd", 1.3) == 1188.72
-    assert convert_to_millimeter("mi", 2) == 3218688
-
-def test_convert_to_centimeter():
-    assert convert_to_centimeter("mm", 30) == 3
-    assert convert_to_centimeter("m", 3) == 300
-    assert convert_to_centimeter("km", 4.5) == 450000
-    assert convert_to_centimeter("in", 27) == 68.58
-    assert convert_to_centimeter("ft", 9) == 274.32
-    assert convert_to_centimeter("yd", 1.2) == 109.728
-    assert convert_to_centimeter("mi", 1.8) == 289681.92
+def test_convert_from_millimeter():
+    assert length_converter.convert_from_millimeter("mm_to_cm", 15) == 1.5
+    assert length_converter.convert_from_millimeter("mm_to_m", 3) == 0.003
+    assert length_converter.convert_from_millimeter("mm_to_km", 4.5) == 0.0000045
+    assert length_converter.convert_from_millimeter("mm_to_in", 24) == 0.9448818898
+    assert length_converter.convert_from_millimeter("mm_to_ft", 7) == 0.0229658793
+    assert length_converter.convert_from_millimeter("mm_to_yd", 1.3) == 0.0014216973
+    assert length_converter.convert_from_millimeter("mm_to_mi", 2) == 0.0000012427
 
 
-def test_convert_to_meter():
-    assert convert_to_meter("mm", 180) == 0.18
-    assert convert_to_meter("cm", 70) == 0.7
-    assert convert_to_meter("km", 180) == 180000
-    assert convert_to_meter("in", 15.6) == 0.39624
-    assert convert_to_meter("ft", 15) == 4.572
-    assert convert_to_meter("yd", 40) == 36.576
-    assert convert_to_meter("mi", 70) == 112654.08
+def test_convert_from_centimeter():
+    assert length_converter.convert_from_centimeter("cm_to_mm", 30) == 300
+    assert length_converter.convert_from_centimeter("cm_to_m", 3) == 0.03
+    assert length_converter.convert_from_centimeter("cm_to_km", 4.5) == 0.000045
+    assert length_converter.convert_from_centimeter("cm_to_in", 27) == 10.6299212598
+    assert length_converter.convert_from_centimeter("cm_to_ft", 9) == 0.2952755906
+    assert length_converter.convert_from_centimeter("cm_to_yd", 1.2) == 0.0131233596
+    assert length_converter.convert_from_centimeter("cm_to_mi", 1.8) == 0.0000111847
 
-def test_convert_to_kilometer():
-    assert convert_to_kilometer("mm", 700) == 0.0007
-    assert convert_to_kilometer("cm", 5600) == 0.056
-    assert convert_to_kilometer("m", 1400) == 1.4
-    assert convert_to_kilometer("in", 100) == 0.00254
-    assert convert_to_kilometer("ft", 40000) == 12.19200
-    assert convert_to_kilometer("yd", 40) == 0.03658
-    assert convert_to_kilometer("mi", 60) == 96.56064
-    
-def test_convert_to_inch():
-    assert convert_to_inch("mm", 750) == 29.52756
-    assert convert_to_inch("cm", 150) == 59.05512
-    assert convert_to_inch("m", 4) == 157.48031
-    assert convert_to_inch("km", 1.45) == 57086.645
-    assert convert_to_inch("ft", 40) == 12
-    assert convert_to_inch("yd", 5) == 180
-    assert convert_to_inch("mi", 0.75) == 47520
 
-def test_convert_to_foot():
-    assert convert_to_foot("mm", 750) == 2.46063
-    assert convert_to_foot("cm", 150) == 4.92126
-    assert convert_to_foot("m", 4) == 13.12336
-    assert convert_to_foot("km", 1.45) == 4757.218
-    assert convert_to_foot("in", 40) == 0.08333
-    assert convert_to_foot("yd", 5) == 15
-    assert convert_to_foot("mi", 0.75) == 3960
+def test_convert_from_meter():
+    assert length_converter.convert_from_meter("m_to_mm", 180) == 180000
+    assert length_converter.convert_from_meter("m_to_cm", 70) == 7000
+    assert length_converter.convert_from_meter("m_to_km", 180) == 0.18
+    assert length_converter.convert_from_meter("m_to_in", 15.6) == 614.17322772
+    assert length_converter.convert_from_meter("m_to_ft", 15) == 49.2125985
+    assert length_converter.convert_from_meter("m_to_yd", 40) == 43.744532
+    assert length_converter.convert_from_meter("m_to_mi", 70) == 0.0434959834
 
-def test_convert_to_yard():
-    assert convert_to_yard("mm", 950) == 1.03893
-    assert convert_to_yard("cm", 410) == 4.48381
-    assert convert_to_yard("m", 5) == 5.46807
-    assert convert_to_yard("km", 1.5) == 1640.41995
-    assert convert_to_yard("in", 30) == 0.83333
-    assert convert_to_yard("ft", 7) == 2.33333
-    assert convert_to_yard("mi", 1.5) == 2640
 
-def test_convert_to_mile():
-    assert convert_to_mile("mm", 950) == 0.00059
-    assert convert_to_mile("cm", 600) == 0.00373
-    assert convert_to_mile("m", 5) == 0.00311
-    assert convert_to_mile("km", 90) == 55.92341
-    assert convert_to_mile("in", 120) == 0.00189
-    assert convert_to_mile("ft", 400) == 0.07576
-    assert convert_to_mile("yd", 500) == 0.28409
+def test_convert_from_kilometer():
+    assert length_converter.convert_from_kilometer("km_to_mm", 700) == 700000000
+    assert length_converter.convert_from_kilometer("km_to_cm", 5600) == 560000000
+    assert length_converter.convert_from_kilometer("km_to_m", 1400) == 1400000
+    assert length_converter.convert_from_kilometer("km_to_in", 100) == 3937007.87
+    assert length_converter.convert_from_kilometer("km_to_ft", 40000) == 131233596
+    assert length_converter.convert_from_kilometer("km_to_yd", 40) == 43744.532
+    assert length_converter.convert_from_kilometer("km_to_mi", 60) == 37.28227152
+
+
+def test_convert_from_inch():
+    assert length_converter.convert_from_inch("in_to_mm", 750) == 19050
+    assert length_converter.convert_from_inch("in_to_cm", 150) == 381
+    assert length_converter.convert_from_inch("in_to_m", 4) == 0.1016
+    assert length_converter.convert_from_inch("in_to_km", 1.45) == 0.0000368300
+    assert length_converter.convert_from_inch("in_to_ft", 40) == 3.333333332
+    assert length_converter.convert_from_inch("in_to_yd", 5) == 0.138888889
+    assert length_converter.convert_from_inch("in_to_mi", 0.75) == 0.0000118371
+
+
+def test_convert_from_foot():
+    assert length_converter.convert_from_foot("ft_to_mm", 750) == 228600
+    assert length_converter.convert_from_foot("ft_to_cm", 150) == 4572
+    assert length_converter.convert_from_foot("ft_to_m", 4) == 1.2192
+    assert length_converter.convert_from_foot("ft_to_km", 1.45) == 0.00044196
+    assert length_converter.convert_from_foot("ft_to_in", 40) == 480
+    assert length_converter.convert_from_foot("ft_to_yd", 5) == 1.666666665
+    assert length_converter.convert_from_foot("ft_to_mi", 0.75) == 0.0001420455
+
+
+def test_convert_from_yard():
+    assert length_converter.convert_from_yard("yd_to_mm", 950) == 868680
+    assert length_converter.convert_from_yard("yd_to_cm", 410) == 37490.4
+    assert length_converter.convert_from_yard("yd_to_m", 5) == 4.57200
+    assert length_converter.convert_from_yard("yd_to_km", 1.5) == 0.0013716
+    assert length_converter.convert_from_yard("yd_to_in", 30) == 1080
+    assert length_converter.convert_from_yard("yd_to_ft", 7) == 21
+    assert length_converter.convert_from_yard("yd_to_mi", 1.5) == 0.0008522727
+
+
+def test_convert_from_mile():
+    assert length_converter.convert_from_mile("mi_to_mm", 950) == 1528876800
+    assert length_converter.convert_from_mile("mi_to_cm", 600) == 96560640
+    assert length_converter.convert_from_mile("mi_to_m", 5) == 8046.72
+    assert length_converter.convert_from_mile("mi_to_km", 90) == 144.84096
+    assert length_converter.convert_from_mile("mi_to_in", 120) == 7603200
+    assert length_converter.convert_from_mile("mi_to_ft", 400) == 2112000
+    assert length_converter.convert_from_mile("mi_to_yd", 500) == 880000

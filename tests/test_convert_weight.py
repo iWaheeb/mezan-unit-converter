@@ -1,38 +1,36 @@
-from src.weight_converter import (
-    convert_to_milligram,
-    convert_to_gram,
-    convert_to_kilogram,
-    convert_to_ounce,
-    convert_to_pound
-)
+from src import weight_converter
 
 
-def test_convert_to_milligram():
-    assert convert_to_milligram("g", 7.5) == 7500
-    assert convert_to_milligram("kg", 0.5) == 500000
-    assert convert_to_milligram("oz", 0.7) == 19844.66619
-    assert convert_to_milligram("lb", 3) == 1360777.11
+def test_convert_from_milligram():
+    assert weight_converter.convert_from_milligram("mg_to_g", 7.5) == 0.0075
+    assert weight_converter.convert_from_milligram("mg_to_kg", 0.5) == 0.0000005
+    assert weight_converter.convert_from_milligram("mg_to_oz", 0.7) == 0.0000246918
+    assert weight_converter.convert_from_milligram("mg_to_lb", 3) == 0.0000066139
 
-def test_convert_to_gram():
-    assert convert_to_gram("mg", 1200) == 1.2
-    assert convert_to_gram("kg", 11.5) == 11500
-    assert convert_to_gram("oz", 15) == 425.2428
-    assert convert_to_gram("lb", 40) == 18143.6948
-    
-def test_convert_to_kilogram():
-    assert convert_to_kilogram("mg", 17000) == 0.017
-    assert convert_to_kilogram("g", 1200) == 1.2
-    assert convert_to_kilogram("oz", 50) == 1.417
-    assert convert_to_kilogram("lb", 140) == 63.50293
 
-def test_convert_to_ounce():
-    assert convert_to_ounce("mg", 750) == 0.02645
-    assert convert_to_ounce("g", 140) == 4.93835
-    assert convert_to_ounce("kg", 17) == 599.657
-    assert convert_to_ounce("lb", 200) == 3200
+def test_convert_from_gram():
+    assert weight_converter.convert_from_gram("g_to_mg", 1200) == 1200000
+    assert weight_converter.convert_from_gram("g_to_kg", 11.5) == 0.0115
+    assert weight_converter.convert_from_gram("g_to_oz", 15) == 0.5291094285
+    assert weight_converter.convert_from_gram("g_to_lb", 40) == 0.0881849048
 
-def test_convert_to_pound():
-    assert convert_to_pound("mg", 1600) == 0.00353
-    assert convert_to_pound("g", 860) == 1.89598
-    assert convert_to_pound("kg", 45) == 99.208
-    assert convert_to_pound("oz", 500) == 31.25
+
+def test_convert_from_kilogram():
+    assert weight_converter.convert_from_kilogram("kg_to_mg", 17000) == 17000000000
+    assert weight_converter.convert_from_kilogram("kg_to_g", 1200) == 1200000
+    assert weight_converter.convert_from_kilogram("kg_to_oz", 50) == 1763.698095
+    assert weight_converter.convert_from_kilogram("kg_to_lb", 140) == 308.6471668
+
+
+def test_convert_from_ounce():
+    assert weight_converter.convert_from_ounce("oz_to_mg", 750) == 21262142.325
+    assert weight_converter.convert_from_ounce("oz_to_g", 140) == 3968.93322
+    assert weight_converter.convert_from_ounce("oz_to_kg", 17) == 0.4819418927
+    assert weight_converter.convert_from_ounce("oz_to_lb", 200) == 12.5
+
+
+def test_convert_from_pound():
+    assert weight_converter.convert_from_pound("lb_to_mg", 1600) == 725747792
+    assert weight_converter.convert_from_pound("lb_to_g", 860) == 390089.4382
+    assert weight_converter.convert_from_pound("lb_to_kg", 45) == 20.41165665
+    assert weight_converter.convert_from_pound("lb_to_oz", 500) == 8000

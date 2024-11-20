@@ -1,18 +1,16 @@
-from src.temperature_converter import (
-    convert_to_celsius,
-    convert_to_fahrenheit,
-    convert_to_kelvin
-)
+from src import temperature_converter
 
 
-def test_convert_to_celsius():
-    assert convert_to_celsius("f", 50) == 10
-    assert convert_to_celsius("k", 120) == -153.15
-    
-def test_convert_to_fahrenheit():
-    assert convert_to_fahrenheit("c", 50) == 86
-    assert convert_to_fahrenheit("k", 150) == -189.67
+def test_convert_from_celsius():
+    assert temperature_converter.convert_from_celsius("c_to_f", 50) == 122
+    assert temperature_converter.convert_from_celsius("c_to_k", 120) == 393.15
 
-def test_convert_to_kelvin():
-    assert convert_to_kelvin("c", 100) == 373.15
-    assert convert_to_kelvin("f", 70) == 294.26111
+
+def test_convert_from_fahrenheit():
+    assert temperature_converter.convert_from_fahrenheit("f_to_c", 50) == 10
+    assert temperature_converter.convert_from_fahrenheit("f_to_k", 150) == 338.705556
+
+
+def test_convert_from_kelvin():
+    assert temperature_converter.convert_from_kelvin("k_to_c", 100) == -173.15
+    assert temperature_converter.convert_from_kelvin("k_to_f", 70) == -333.67
